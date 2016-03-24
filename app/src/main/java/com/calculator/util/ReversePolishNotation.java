@@ -70,7 +70,7 @@ public class ReversePolishNotation {
 
         Stack<String> fixedSplitResult = new Stack<>();
         for (String str : splitResult) {
-            if (isNumber(str) && str.startsWith("-") && isNumber(previousSymbol)) {
+            if (isNumber(str) && str.startsWith("-") && (isNumber(previousSymbol) || previousSymbol.equals(Calc.RIGHT_BRACKET))) {
                 fixedSplitResult.push("-");
                 fixedSplitResult.push(str.substring(1));
                 previousSymbol = str.substring(1);
