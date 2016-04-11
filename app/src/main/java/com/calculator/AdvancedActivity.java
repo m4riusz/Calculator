@@ -23,6 +23,7 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void equalsPressed(View view) {
+        reversePolishNotation.clear();
         try {
             double result = reversePolishNotation.evaluate(reversePolishNotation.parse(readDisplayText()));
             display.setText(String.valueOf(result));

@@ -131,4 +131,8 @@ public class ReversePolishNotation {
         }
     }
 
+    public void clear() {
+        output.clear();
+        stack.clear();
+    }
 }
