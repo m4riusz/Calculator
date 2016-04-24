@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.calculator.util.PostfixNotation;
 import com.calculator.util.ReversePolishNotation;
 
 /**
@@ -15,7 +16,7 @@ import com.calculator.util.ReversePolishNotation;
 public class SimpleActivity extends AppCompatActivity {
 
     private TextView display;
-    private ReversePolishNotation reversePolishNotation;
+    private PostfixNotation reversePolishNotation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,6 @@ public class SimpleActivity extends AppCompatActivity {
     }
 
     public void equalsPressed(View view) {
-        reversePolishNotation.clear();
         try {
             double result = reversePolishNotation.evaluate(reversePolishNotation.parse(readDisplayText()));
             display.setText(String.valueOf(result));

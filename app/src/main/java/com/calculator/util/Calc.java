@@ -23,7 +23,6 @@ public class Calc {
 
     public static final String LEFT_BRACKET = "(";
     public static final String RIGHT_BRACKET = ")";
-    public static final String SPLIT_MATH_EXPRESSION = "(?<=[\\+*/^√()])|((?<=-)(?!\\d))|(?=[()\\-+^√*\\/])";
     public static final Map<String, Operator> OPERATORS_MAP = createMap();
     private static final int PRIORITY_LOW = 1;
     private static final int PRIORITY_MED = 2;

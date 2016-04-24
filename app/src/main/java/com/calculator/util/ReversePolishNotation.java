@@ -10,8 +10,8 @@ import java.util.Stack;
 /**
  * Created by mariusz on 15.03.16.
  */
-public class ReversePolishNotation {
-
+public class ReversePolishNotation implements PostfixNotation {
+    private final String SPLIT_MATH_EXPRESSION = "(?<=[\\+*/^√()])|((?<=-)(?!\\d))|(?=[()\\-+^√*\\/])";
     private Stack<String> output;
     private Stack<String> stack;
 
@@ -21,6 +21,7 @@ public class ReversePolishNotation {
     }
 
     public Stack<String> parse(String expression) {
+        clear();
         Stack<String> splittedExpression = reverseStack(splitExpression(expression));
         while (!splittedExpression.empty()) {
             String value = splittedExpression.pop();
@@ -64,7 +65,7 @@ public class ReversePolishNotation {
     }
 
     private Stack<String> splitExpression(String expression) {
-        String split[] = expression.split(Calc.SPLIT_MATH_EXPRESSION);
+        String split[] = expression.split(SPLIT_MATH_EXPRESSION);
         List<String> splitResult = new ArrayList<String>(Arrays.asList(split));
         String previousSymbol = "";
 
@@ -131,7 +132,7 @@ public class ReversePolishNotation {
         }
     }
 
-    public void clear() {
+    private void clear() {
         output.clear();
         stack.clear();
     }
